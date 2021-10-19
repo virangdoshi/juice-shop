@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2021 Bjoern Kimminich.
+ * Copyright (c) 2014-2021 Bjoern Kimminich & the OWASP Juice Shop contributors.
  * SPDX-License-Identifier: MIT
  */
 
@@ -78,7 +78,8 @@ async function createChallenges () {
           hintUrl: showHints ? hintUrl : null,
           mitigationUrl: showMitigations ? mitigationUrl : null,
           disabledEnv: config.get('challenges.safetyOverride') ? null : effectiveDisabledEnv,
-          tutorialOrder: tutorial ? tutorial.order : null
+          tutorialOrder: tutorial ? tutorial.order : null,
+          codingChallengeStatus: 0
         })
       } catch (err) {
         logger.error(`Could not insert Challenge ${name}: ${err.message}`)

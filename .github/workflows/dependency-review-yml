@@ -1,0 +1,24 @@
+name: 'Dependency Review'
+on: [pull_request]
+
+permissions:
+  contents: read
+  # This permission is required for the action to add a summary to the PR 
+  pull-requests: write
+
+jobs:
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v3
+      - name: 'Dependency Review'
+        uses: actions/dependency-review-action@v3
+        with:
+          # options are: low, moderate, high, critical
+          fail-on-severity: high
+
+          # Print a summary in the PR, describing any findings during the scan
+          comment-summary-in-pr: always
+
+          allow-ghsas: "GHSA-4x9r-j582-cgr8"

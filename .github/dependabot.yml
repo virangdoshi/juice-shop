@@ -1,14 +1,13 @@
 version: 2
-groups:
-  security:
-    applies-to: security-updates
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
     schedule:
-      internal: "daily"
-    directories:
-     - "/"
-    open-pull-requests-limit: 10
-  ignore:
-    applies-to: version-updates
-    open-pull-requests-limit: 0
-
-    
+      interval: "daily"
+    groups:
+      security:
+        applies-to: security-updates
+        open-pull-requests-limit: 10
+      ignore-non-security:
+        applies-to: version-updates
+        open-pull-requests-limit: 0

@@ -1,0 +1,14 @@
+version: 2
+groups:
+  security:
+    applies-to: security-updates
+    schedule:
+      internal: "daily"
+    directories:
+     - "/"
+    open-pull-requests-limit: 10
+  ignore:
+    applies-to: version-updates
+    open-pull-requests-limit: 0
+
+    
